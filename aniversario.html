@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #e75480;
+            margin-top: 20px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px #000000;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            z-index: 1; /* Ensure h1 is above falling hearts */
+        }
+        h1:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            background-color: rgba(255, 228, 225, 0.877);
+            border-radius: 10px;
+            padding: 40px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            width: 85%;
+            max-width: 900px;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            z-index: 1; /* Ensure container is above falling hearts */
+        }
+        
+        img {
+            max-width: 50%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            transition: color 0.3s ease-in-out;
+        }
+        p:hover {
+            color: #e75480;
+        }
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0; /* Ensure falling hearts are below content */
+        }
+        .falling-heart {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(231, 84, 128, 0.7);
+            transform: rotate(45deg);
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(45deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(45deg);
+            }
+        }
+        .falling-heart:before, .falling-heart:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(231, 84, 128, 0.7);
+            border-radius: 50%;
+        }
+        .falling-heart:before {
+            top: -12.5px;
+            left: 0;
+        }
+        .falling-heart:after {
+            top: 0;
+            left: -12.5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .special-message {
+            font-size: 20px;
+            color: #ff004c;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Feliz Aniversario</h1>
+    <div class="container">
+        <img src="/img/img1.jpg" alt="Aniversario 1" onclick="openModal(event, 'Te amo con todo mi corazón!')">
+        <p>Amor de mi vida,</p>
+        <img src="/img/img2.jpg" alt="Aniversario 2" onclick="openModal(event, 'Eres lo mejor que me ha pasado!')">
+        <p>Hoy se cumple un año desde que nuestras vidas se entrelazaron en esta hermosa aventura llamada amor. Al mirar hacia atrás, me doy cuenta de lo afortunada que soy por haberte encontrado. Desde el primer momento supe que había algo especial en ti, algo que me atrajo de una manera que nunca antes había sentido.</p>
+        <img src="/img/img3.jpg" alt="Aniversario 3" onclick="openModal(event, 'Gracias por un año maravilloso!')">
+        <p>En este tiempo juntos, hemos compartido risas, sueños, desafíos y triunfos. Cada día a tu lado ha sido un regalo que guardo con todo mi corazón. Has sido mi roca en los momentos difíciles, mi compañero de risas en los momentos felices, y mi apoyo constante en todo momento. Eres la razón por la que cada día es mejor que el anterior, y no puedo imaginar mi vida sin ti.</p>
+        <img src="/img/img4.jpg" alt="Aniversario 4" onclick="openModal(event, 'Cada día a tu lado es especial!')">
+        <p>Admiro la forma en que enfrentas la vida y tu increíble capacidad para hacerme sentir amada y apreciada. Con cada gesto, cada palabra y cada sonrisa, me has mostrado lo que significa el verdadero amor. Eres mi inspiración, mi refugio y mi mejor amigo.</p>
+        <img src="/img/img5.jpg" alt="Aniversario 5" onclick="openModal(event, 'Te amo más de lo que las palabras pueden expresar!')">
+        <p>Hoy, mientras celebramos nuestro primer año juntos, quiero que sepas cuánto significas para mí. Te amo más de lo que las palabras pueden expresar y estoy emocionada por todo lo que el futuro nos tiene reservado. Prometo seguir amándote con toda mi alma, apoyarte en cada paso del camino y hacer todo lo posible para hacerte feliz.</p>
+        <img src="/img/img6.jpg" alt="Aniversario 6" onclick="openModal(event, 'Eres mi inspiración y mi refugio!')">
+        <p>Gracias por ser tú, por ser mi compañero en este gran viaje y por llenar mi vida de amor y alegría. Feliz aniversario, mi amor. A por muchos años más juntos, llenos de amor, aventuras y sueños cumplidos.</p>
+        <img src="/img/img7.jpg" alt="Aniversario 7" onclick="openModal(event, 'Eres mi compañer de vida!')">
+        <p>Gracias por cuidarme y por curar mi corazón.</p>
+        <!-- Repeat the images as necessary to reach 18 -->
+        <img src="/img/img8.jpg" alt="Aniversario 8" onclick="openModal(event, 'Te amo!')">
+        <img src="/img/img9.jpg" alt="Aniversario 9" onclick="openModal(event, 'Eres mi vida!')">
+        <img src="/img/img10.jpg" alt="Aniversario 10" onclick="openModal(event, 'Feliz Aniversario!')">
+        <img src="/img/img11.jpg" alt="Aniversario 11" onclick="openModal(event, 'Mi amor por ti no tiene fin!')">
+        <img src="/img/img12.jpg" alt="Aniversario 12" onclick="openModal(event, 'Gracias por todo!')">
+        <img src="/img/img13.jpg" alt="Aniversario 13" onclick="openModal(event, 'Eres mi todo!')">
+        <img src="/img/img14.jpg" alt="Aniversario 14" onclick="openModal(event, 'A por muchos más años juntos!')">
+        <img src="/img/img15.jpg" alt="Aniversario 15" onclick="openModal(event, 'Eres mi sol!')">
+        <img src="/img/img16.jpg" alt="Aniversario 16" onclick="openModal(event, 'Nunca cambies amochitooooo!')">
+        <img src="/img/img17.jpg" alt="Aniversario 17" onclick="openModal(event, 'Siempre juntos!')">
+        <img src="/img/img18.jpg" alt="Aniversario 18" onclick="openModal(event, 'Te adoro, las palabras se quedan cortas al decirte lo mucho que te amo!')">
+        <div><h1>Te amo mi vida</h1></div>
+    </div>
+    
+    <audio autoplay loop>
+        <source src="/cancion/cancion.mp3" type="audio/mp3">
+    </audio>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Imagen Modal" style="width: 100%;">
+            <div id="specialMessage" class="special-message"></div>
+        </div>
+    </div>
+    <div class="falling-hearts" id="fallingHeartsContainer"></div>
+    <script>
+        function createHearts() {
+            const container = document.getElementById("fallingHeartsContainer");
+            container.innerHTML = ""; // Clear existing hearts
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement("div");
+                heart.className = "falling-heart";
+                heart.style.left = Math.random() * 100 + "%";
+                heart.style.animationDuration = 4 + Math.random() * 2 + "s"; // Adjust speed as needed
+                heart.style.animationDelay = Math.random() * 2 + "s";
+                container.appendChild(heart);
+            }
+        }
+
+        function openModal(event, message) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImage");
+            var specialMessage = document.getElementById("specialMessage");
+            var imgSrc = event.target.src;
+
+            // Verifica si la imagen existe antes de abrir el modal
+            var img = new Image();
+            img.onload = function() {
+                modal.style.display = "flex";
+                modalImg.src = imgSrc;
+                specialMessage.textContent = message;
+            }
+            img.onerror = function() {
+                alert("La imagen no se pudo cargar: " + imgSrc);
+            }
+            img.src = imgSrc;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        window.onload = function() {
+            // Ocultar modal al cargar la página
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+            createHearts(); // Create hearts when the page loads
+        }
+    </script>
+</body>
+</html>
